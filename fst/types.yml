@@ -1,4 +1,3 @@
----
 types:
     - weight:   TropicalWeight
       arc:      StdArc
@@ -14,4 +13,3 @@ types:
       other:    Std
       convert:  StdToLog
       semiring: log
----
