@@ -1,3 +1,4 @@
+# distutils: language = c++
 cimport libfst
 cimport sym
 import subprocess
@@ -59,8 +60,16 @@ def read_symbols(filename):
     del fstream
     return table
 
+def read_symbols_text(filename, allow_negative=False):
+    """read_symbols(filename, allow_negative=False)
+    Read SymbolTable from the textual representation"""
+    filename = as_str(filename)
+    cdef SymbolTable table = SymbolTable.__new__(SymbolTable)
+    table.table = sym.SymbolTableReadText(filename, allow_negative)
+    return table
+
 cdef class SymbolTable:
-    cdef sym.SymbolTable* table
+    # cdef sym.SymbolTable* table
 
     def __init__(self, epsilon=EPSILON):
         """SymbolTable() -> new symbol table with \u03b5 <-> 0
@@ -87,6 +96,11 @@ cdef class SymbolTable:
     def write(self, filename):
         """table.write(filename): save the symbol table to filename"""
         self.table.Write(as_str(filename))
+
+    def write_text(self, filename):
+        """table.write_text(filename): 
+        save the symbol table to filename in text form"""
+        self.table.WriteText(as_str(filename))
 
     def find(self, key):
         """table.find(int value) -> decoded symbol if any symbol maps to this value
@@ -331,8 +345,8 @@ cdef class {{state}}:
         return '<{{state}} #{0} with {1} arcs>'.format(self.stateid, len(self))
 
 cdef class {{fst}}(_Fst):
-    cdef libfst.{{fst}}* fst
-    cdef public SymbolTable isyms, osyms
+    # cdef libfst.{{fst}}* fst
+    # cdef public SymbolTable isyms, osyms
     SEMIRING = {{weight}}
 
     def __init__(self, source=None, isyms=None, osyms=None):

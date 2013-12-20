@@ -7,7 +7,15 @@ Documentation: http://pyfst.github.io
 ## Installation
 
 1. Install OpenFst 1.3
-2. `pip install pyfst` (do not try installing directly from the git repository)
+2. Build the fork using `setup.py`
+
+```bash
+# Change for your setting needed only if openfst is not in PYTHONPATH
+export FST=/ha/work/people/oplatek/kaldi/tools/openfst  
+LIBRARY_PATH=$FST/lib:$FST/lib/fst CPLUS_INCLUDE_PATH=$FST/include python setup.py build_ext --inplace
+#for further usage
+export LD_LIBRARY_PATH=$FST/lib:$FST/lib/fst:$LD_LIBRARY_PATH
+```
 
 ## Basic Usage
 

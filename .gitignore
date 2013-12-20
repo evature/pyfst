@@ -1,3 +1,6 @@
 fst/_fst.pyx
 fst/libfst.pxd
 fst/_fst.cpp
+examples/binary.fst
+fst/_fst.so
+build
