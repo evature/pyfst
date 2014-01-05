@@ -4,6 +4,8 @@ Python interface to [OpenFst](http://openfst.org)
 
 Documentation: http://pyfst.github.io
 
+[![Build Status](https://travis-ci.org/UFAL-DSG/pyfst.png?branch=master)](https://travis-ci.org/UFAL-DSG/pyfst)
+
 ## Installation
 
 1. Install OpenFst 1.3
