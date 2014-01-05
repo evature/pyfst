@@ -11,13 +11,13 @@ compiler:
 
 before_install:
     # alternative download: || wget -T 10 -t 3 --no-check-certificate http://www.openfst.org/twiki/pub/FST/FstDownload/openfst-1.3.2.tar.gz \
-    - wget http://openfst.cs.nyu.edu/twiki/pub/FST/FstDownload/openfst-1.3.2.tar.gz \
-      && tar xozf openfst-1.3.2.tar.gz \
-      && ln -s openfst-1.3.2 openfst \
-      && pushd openfst \
-      && ./configure --prefix=`pwd` --enable-static --with-pic --enable-shared --enable-far --enable-ngram-fsts \
-      && make install \
-      && [ -d lib64 ] && [ ! -d lib ] && ln -s lib64 lib \
+    - wget http://openfst.cs.nyu.edu/twiki/pub/FST/FstDownload/openfst-1.3.2.tar.gz
+      && tar xozf openfst-1.3.2.tar.gz
+      && ln -s openfst-1.3.2 openfst
+      && pushd openfst
+      && ./configure --prefix=`pwd` --enable-static --with-pic --enable-shared --enable-far --enable-ngram-fsts
+      && make install
+      && [ -d lib64 ] && [ ! -d lib ] && ln -s lib64 lib
       ; popd
 
 install: 
