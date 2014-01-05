@@ -11,7 +11,7 @@ Documentation: http://pyfst.github.io
 
 ```bash
 # Change for your setting needed only if openfst is not in PYTHONPATH
-export FST=/ha/work/people/oplatek/kaldi/tools/openfst  
+export FST=your/path/to/openfst  
 LIBRARY_PATH=$FST/lib:$FST/lib/fst CPLUS_INCLUDE_PATH=$FST/include python setup.py build_ext --inplace
 #for further usage
 export LD_LIBRARY_PATH=$FST/lib:$FST/lib/fst:$LD_LIBRARY_PATH
@@ -35,13 +35,10 @@ t.shortest_path() # 2 -(a:A/0.5)-> 1 -(c:C/2.5)-> 0/3.5
 
 The pyfst API is [IPython notebook](http://ipython.org/ipython-doc/dev/interactive/htmlnotebook.html)-friendly: the transducers objects are [automatically drawn](http://nbviewer.ipython.org/3835477/) using [Graphviz](http://www.graphviz.org).
 
-## Development
-
-See [the wiki](https://github.com/vchahun/pyfst/wiki/Contributing) to learn about how to install pyfst from the Cython source.
-
 ## License
 
 Copyright 2013 Victor Chahuneau
+          2013 Ondrej Platek
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
