@@ -14,6 +14,7 @@ templates = [
 
 
 class pre_build_ext(build_ext):
+
     def run(self):
         '''Before building the C++ extension apply the
         templates substitution'''
