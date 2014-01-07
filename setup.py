@@ -94,5 +94,8 @@ setup(
                  'Intended Audience :: Education',
                  'Intended Audience :: Science/Research'],
     packages=['fst'],
-    ext_modules=ext_modules
+    ext_modules=ext_modules,
+    test_suite='nose.collector',
+    setup_requires=['cython>=0.19.1', 'pyyaml', 'pystache'],
+    tests_require=['nose>=1.0', 'pyfst'],
 )
