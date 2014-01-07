@@ -25,4 +25,4 @@ install:
     - export FST=`pwd`/openfst; LIBRARY_PATH=$FST/lib:$FST/lib/fst CPLUS_INCLUDE_PATH=$FST/include python setup.py build_ext --inplace
 
 script:
-    - export FST=`pwd`/openfst; export LD_LIBRARY_PATH=$FST/lib:$FST/lib/fst:$LD_LIBRARY_PATH; python setup.py nosetests
+    - export FST=`pwd`/openfst; export LD_LIBRARY_PATH=$FST/lib:$FST/lib/fst:$LD_LIBRARY_PATH; LIBRARY_PATH=$FST/lib:$FST/lib/fst CPLUS_INCLUDE_PATH=$FST/include python setup.py nosetests
