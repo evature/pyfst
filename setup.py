@@ -5,6 +5,7 @@ from distutils.extension import Extension
 from Cython.Distutils import build_ext
 import yaml
 import pystache
+from subprocess import check_output
 
 
 templates = [
@@ -53,6 +54,14 @@ ext_modules = [
               )
 ]
 
+try:
+    # In order to find out the pykaldi version from installed package at runtime use:
+    # import pgk_resources as pkg; pkg.get_distribution('pykaldi')
+    git_version = check_output(['git', 'rev-parse', 'HEAD'])
+except:
+    git_version = 'Unknown Git version'
+    print git_version
+
 long_description = """
 pyfst
 =====
@@ -83,9 +92,9 @@ Example usage::
 setup(
     name='pyfst',
     cmdclass={'build_ext': pre_build_ext},
-    version='0.2.3',
+    version='0.2.3dev-' + git_version,
     url='http://pyfst.github.io',
-    author='Victor Chahuneau',
+    author='Victor Chahuneau, Ondrej Platek',
     description='A Python interface to OpenFst.',
     long_description=long_description,
     classifiers=['Topic :: Text Processing :: Linguistic',
