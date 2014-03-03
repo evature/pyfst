@@ -5,7 +5,6 @@ from distutils.extension import Extension
 from Cython.Distutils import build_ext
 import yaml
 import pystache
-from subprocess import check_output
 
 
 templates = [
@@ -54,13 +53,6 @@ ext_modules = [
               )
 ]
 
-try:
-    # In order to find out the pykaldi version from installed package at runtime use:
-    # import pgk_resources as pkg; pkg.get_distribution('pykaldi')
-    git_version = check_output(['git', 'rev-parse', 'HEAD'])
-except:
-    git_version = 'Unknown Git version'
-    print git_version
 
 long_description = """
 pyfst
@@ -70,8 +62,9 @@ A Python interface for the OpenFst_ library.
 
 .. _OpenFst: http://www.openfst.org
 
-- Documentation: http://pyfst.github.io
-- Source code: https://github.com/vchahun/pyfst
+- Documentation: http://pyfst.github.io (Original docs)
+- Source code: https://github.com/UFAL-DSG/pyfst (Forked)
+- Original:    https://github.com/vchahun/pyfst
 
 Example usage::
 
@@ -92,7 +85,7 @@ Example usage::
 setup(
     name='pyfst',
     cmdclass={'build_ext': pre_build_ext},
-    version='0.2.3dev-' + git_version,
+    version='0.2.3dev',
     url='http://pyfst.github.io',
     author='Victor Chahuneau, Ondrej Platek',
     description='A Python interface to OpenFst.',
