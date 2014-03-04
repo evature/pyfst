@@ -18,7 +18,7 @@ class pre_build_ext(build_ext):
     def run(self):
         '''Before building the C++ extension apply the
         templates substitution'''
-        print 'running pre_build_ext'
+        print('running pre_build_ext')
         try:
             for templ_name, dic_name, result in templates:
                 with open(dic_name, 'r') as d:
@@ -27,11 +27,11 @@ class pre_build_ext(build_ext):
                             dic = yaml.load(d)
                             tmpl = t.read()
                             r.write(pystache.render(tmpl, dic))
-                            print 'Created template %s' % result
+                            print('Created template %s' % result)
             build_ext.run(self)
         except Exception as e:
             # how to handle bad cases!
-            print e
+            print(e)
             raise e
 
 

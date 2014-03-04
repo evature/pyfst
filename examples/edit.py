@@ -51,10 +51,10 @@ def main(a, b):
     """
     edit_distance = make_edit(set(a+b))
     dist, align = edit_distance(a, b)
-    print('Distance: {0}'.format(dist))
-    x, y = zip(*align)
-    print(''.join(x))
-    print(''.join(y))
+    print(('Distance: {0}'.format(dist)))
+    x, y = list(zip(*align))
+    print((''.join(x)))
+    print((''.join(y)))
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:

@@ -3,7 +3,7 @@ from nose.tools import eq_, ok_
 
 def test_simple():
     t = fst.Transducer()
-    for i, (ic, oc) in enumerate(zip('hello', 'olleh')):
+    for i, (ic, oc) in enumerate(list(zip('hello', 'olleh'))):
         t.add_arc(i, i+1, ic, oc)
     t[i+1].final = True
     eq_(len(t), 6)
