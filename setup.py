@@ -47,6 +47,7 @@ ext_modules = [
     Extension(name='fst._fst',
               sources=['fst/_fst.pyx'],
               language='c++',
+              extra_compile_args=["-std=c++11",],
               include_dirs=INC,
               libraries=['fst'],
               library_dirs=LIB,
